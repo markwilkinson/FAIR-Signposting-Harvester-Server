@@ -17,15 +17,15 @@ def set_routes(classes: allclasses) # $th is the test configuration hash
   end
 
   get '/fsp-harvester-server/ld' do
-    content_type "text/turtle"
+    content_type "application/ld+json"
     guid = params['guid']
     @links, @metadata = FspHarvester::Utils.resolve_guid(guid: guid)
     @metadata = FspHarvester::Utils.gather_metadata_from_describedby_links(links: @links, metadata: @metadata)
     graph = @metadata.graph
-    $stderr.puts "graph size #{graph.size}"
-    $stderr.puts "graph size #{graph.inspect}"
+    # $stderr.puts "graph size #{graph.size}"
+    # $stderr.puts "graph size #{graph.inspect}"
 
-    graph.dump(:turtle)
+    graph.dump(:jsonld)
   end
 
   get '/fsp-harvester-server/json' do

@@ -1,5 +1,5 @@
 require './config/environment'
-#require 'dbase'
+#require_relative '../../config/environment'  # for docker
 require 'swagger/blocks'
 require 'sinatra'
 require 'sinatra/base'
@@ -13,9 +13,24 @@ require_relative './routes.rb'
 class ApplicationController < Sinatra::Application
   include Swagger::Blocks
 
+  set :bind, '0.0.0.0'
+  before do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+  end
+
+    
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :cross_origin
+  end
+
+  # routes...  
+  options "*" do
+    response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    200
   end
 
   swagger_root do

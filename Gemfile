@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gemspec
-ruby '3.0'
+ruby '~> 3.0'
 # gem 'activerecord', '~> 7', '>= 7', require: 'active_record'
 gem 'bcrypt'
 gem 'linkeddata', '~> 3.2.0'
@@ -20,6 +20,7 @@ gem 'sinatra', '~> 2.2'
 # gem 'sinatra-json'
 # gem 'sinatra-activerecord', require: 'sinatra/activerecord'
 gem 'swagger-blocks', '~> 3.0.0'
+gem 'sinatra-cross_origin'
 gem 'thin'
 gem 'tux'
 gem 'xml-simple', '~>1.1.8'

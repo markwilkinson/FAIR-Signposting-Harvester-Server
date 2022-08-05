@@ -28,7 +28,7 @@ class LinksResponse
   # Notice, this is just a plain ruby object.
   include Swagger::Blocks
 
-  swagger_path '/links/{guid}' do
+  swagger_path '/links' do
     operation :get do
       key :summary, 'retrieve links'
       key :description, 'retrieve the link headers discovered (as HTML link headers)'
@@ -55,15 +55,15 @@ class LinkedDataResponse
   # Notice, this is just a plain ruby object.
   include Swagger::Blocks
 
-  swagger_path '/ld/{guid}' do
+  swagger_path '/ld' do
     operation :get do
       key :summary, 'retrieve graph metadata'
       key :description,
-          'retrieve the linked-data metadata gathered by following the "described-by" link headers, as Turtle'
+          'retrieve the linked-data metadata gathered by following the "described-by" link headers, as json-ld'
       key :operationId, 'graph_retrieve'
       key :tags, ['retrieve_rdf']
       key :produces, [
-        'text/turtle'
+        'application/ld+json'
       ]
       parameter do
         key :name, :guid
@@ -83,7 +83,7 @@ class JSONResponse
   # Notice, this is just a plain ruby object.
   include Swagger::Blocks
 
-  swagger_path '/json/{guid}' do
+  swagger_path '/json' do
     operation :get do
       key :summary, 'retrieve non-graph metadata'
       key :description,

@@ -8,5 +8,6 @@ Bundler.require(:default, ENV['SINATRA_ENV'])
 #   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 # )
 
-require './app/controllers/application_controller'
+#require './app/controllers/application_controller'
+#require_all '/server/fsp-harvester-server/app' # for docker
 require_all 'app'
