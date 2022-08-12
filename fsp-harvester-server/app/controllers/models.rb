@@ -106,3 +106,31 @@ class JSONResponse
     end
   end
 end
+
+class JSONWarnings
+  # Notice, this is just a plain ruby object.
+  include Swagger::Blocks
+
+  swagger_path '/warnings' do
+    operation :get do
+      key :summary, 'retrieve warnings'
+      key :description,
+          'retrieve warnings generated during metadata gathering'
+      key :operationId, 'warnings'
+      key :tags, ['warnings']
+      key :produces, [
+        'application/json'
+      ]
+      parameter do
+        key :name, :guid
+        key :in, :query
+        key :description, 'GUID to process'
+        key :required, true
+        key :type, :string
+      end
+      response 200 do
+        key :description, 'generated warnings'
+      end
+    end
+  end
+end

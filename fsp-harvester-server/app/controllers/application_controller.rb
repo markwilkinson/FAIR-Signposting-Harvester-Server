@@ -56,14 +56,14 @@ class ApplicationController < Sinatra::Application
     #   end
     # end
     key :schemes, ["http"]
-    key :host, 'localhost:4567'
+    key :host, ENV['HARVESTER']
     key :basePath, '/fsp-harvester-server'
 #    key :consumes, ['application/json']
 #    key :produces, ['application/json']
   end
 
   # A list of all classes that have swagger_* declarations.
-  SWAGGERED_CLASSES = [ ErrorModel, LinksResponse, JSONResponse, LinkedDataResponse, self].freeze
+  SWAGGERED_CLASSES = [ ErrorModel, LinksResponse, JSONResponse, LinkedDataResponse, JSONWarnings, self].freeze
 
   set_routes(classes: SWAGGERED_CLASSES)
 
