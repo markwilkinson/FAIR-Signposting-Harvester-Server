@@ -63,7 +63,7 @@ class ApplicationController < Sinatra::Application
   end
 
   # A list of all classes that have swagger_* declarations.
-  SWAGGERED_CLASSES = [ ErrorModel, LinksResponse, JSONResponse, LinkedDataResponse, JSONWarnings, self].freeze
+  SWAGGERED_CLASSES = [ ErrorModel, LinksResponse, JSONResponse, LinkedDataResponse, JSONWarnings, LinkedDataResponseNegotiation, self].freeze
 
   set_routes(classes: SWAGGERED_CLASSES)
 

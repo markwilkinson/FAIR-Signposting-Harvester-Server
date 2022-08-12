@@ -58,10 +58,37 @@ class LinkedDataResponse
   swagger_path '/ld' do
     operation :get do
       key :summary, 'retrieve graph metadata'
-      key :description,
-          'retrieve the linked-data metadata gathered by following the "described-by" link headers, as json-ld'
+      key :description, 'retrieve the linked-data metadata gathered by following the "described-by" link headers, as json-ld'
       key :operationId, 'graph_retrieve'
       key :tags, ['retrieve_rdf']
+      key :produces, [
+        'application/ld+json'
+      ]
+      parameter do
+        key :name, :guid
+        key :in, :query
+        key :description, 'GUID to process'
+        key :required, true
+        key :type, :string
+      end
+      response 200 do
+        key :description, 'discovered graph metadata'
+      end
+    end
+  end
+end
+
+class LinkedDataResponseNegotiation
+  # Notice, this is just a plain ruby object.
+  include Swagger::Blocks
+
+  swagger_path '/ld-by-old-workflow' do
+    operation :get do
+      key :summary, 'retrieve graph metadata'
+      key :description,
+          'retrieve the linked-data metadata gathered obtained by the old workflow used by The Evaluator combined with the FAIR Signposing'
+      key :operationId, 'graph_retrieve_evaluator'
+      key :tags, ['retrieve_rdf_evaluator_workflow']
       key :produces, [
         'application/ld+json'
       ]
@@ -88,7 +115,7 @@ class JSONResponse
       key :summary, 'retrieve non-graph metadata'
       key :description,
           'retrieve the non-linked-data metadata gathered by following the "described-by" link headers, as JSON'
-      key :operationId, 'graph_retrieve'
+      key :operationId, 'json_retrieve'
       key :tags, ['retrieve_json']
       key :produces, [
         'application/json'

@@ -22,9 +22,6 @@ def set_routes(classes: allclasses) # $th is the test configuration hash
     @links, @metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
     @metadata = FspHarvester::Utils.gather_metadata_from_describedby_links(links: @links, metadata: @metadata)
     graph = @metadata.graph
-    # $stderr.puts "graph size #{graph.size}"
-    # $stderr.puts "graph size #{graph.inspect}"
-
     graph.dump(:jsonld)
   end
 
@@ -37,12 +34,20 @@ def set_routes(classes: allclasses) # $th is the test configuration hash
 
   end
 
-  get '/fsp-harvester-server/warnings' do
+  get '/fsp-harvester-server/ld-by-old-workflow' do
     content_type :json
     guid = params['guid']
     @links, @metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
-    response = @metadata.warnings.to_json || '{}'
-    response
+    meta = HarvesterTools::BruteForce.begin_brute_force(guid: guid, metadata: @metadata)
+    graph = meta.graph
+    graph.dump(:jsonld)
   end
+
+  guid = '10.5061/dryad.6tb1702'
+  _links, metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
+  meta = HarvesterTools::BruteForce.begin_brute_force(guid: guid, metadata: metadata)
+  expect(meta.graph.size).to eq 55
+  expect(meta.hash.size).to eq 0
+  expect(meta.links.length).to eq 9
 end
 
