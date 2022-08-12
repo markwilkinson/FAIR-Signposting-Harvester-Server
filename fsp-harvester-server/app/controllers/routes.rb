@@ -43,11 +43,5 @@ def set_routes(classes: allclasses) # $th is the test configuration hash
     graph.dump(:jsonld)
   end
 
-  guid = '10.5061/dryad.6tb1702'
-  _links, metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
-  meta = HarvesterTools::BruteForce.begin_brute_force(guid: guid, metadata: metadata)
-  expect(meta.graph.size).to eq 55
-  expect(meta.hash.size).to eq 0
-  expect(meta.links.length).to eq 9
 end
 

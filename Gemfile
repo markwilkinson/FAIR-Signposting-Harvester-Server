@@ -24,7 +24,7 @@ gem 'sinatra-cross_origin'
 gem 'thin'
 gem 'tux'
 gem 'xml-simple', '~>1.1.8'
-gem 'fsp_harvester', '~> 0.1.15'
+gem 'fsp_harvester', '~> 0.1.16'
 gem 'debase'
 
 group :test do
