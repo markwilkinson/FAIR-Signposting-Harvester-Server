@@ -34,14 +34,39 @@ def set_routes(classes: allclasses) # $th is the test configuration hash
 
   end
 
-  get '/fsp-harvester-server/ld-by-old-workflow' do
+  get '/fsp-harvester-server/warnings' do
     content_type :json
     guid = params['guid']
     @links, @metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
-    meta = HarvesterTools::BruteForce.begin_brute_force(guid: guid, metadata: @metadata)
+    response = @metadata.warnings.to_json || '{}'
+    response
+  end
+
+  get '/fsp-harvester-server/ld-by-old-workflow' do
+    content_type "application/ld+json"
+    guid = params['guid']
+    @links, @metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
+    meta = HarvesterTools::BruteForce.begin_brute_force(guid: guid, metadata: @metadata, links: @links)
     graph = meta.graph
     graph.dump(:jsonld)
   end
+
+  get '/fsp-harvester-server/json-by-old-workflow' do
+    content_type :json
+    guid = params['guid']
+    @links, @metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
+    meta = HarvesterTools::BruteForce.begin_brute_force(guid: guid, metadata: @metadata, links: @links)
+    hash = meta.hash
+    hash.to_json
+  end
+  get '/fsp-harvester-server/champion-warnings' do
+    content_type :json
+    guid = params['guid']
+    @links, @metadata = HarvesterTools::Utils.resolve_guid(guid: guid)
+    response = @metadata.warnings.to_json || '{}'
+    response
+  end
+
 
 end
 
