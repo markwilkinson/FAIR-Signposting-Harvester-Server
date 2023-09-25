@@ -76,10 +76,10 @@ GEM
       faraday (~> 1.0)
     fastimage (2.2.6)
     ffi (1.15.5)
-    fsp_harvester (0.1.25)
+    fsp_harvester (0.1.26)
       json (~> 2.0)
       linkeddata (~> 3.2)
-      linkheaders-processor (~> 0.1.18)
+      linkheaders-processor (~> 0.1.19)
       metainspector (~> 5.11.2)
       parseconfig (~> 1.1)
       rake (~> 13.0)
@@ -146,7 +146,7 @@ GEM
       sparql (~> 3.2, >= 3.2.4)
       sparql-client (~> 3.2, >= 3.2.1)
       yaml-ld (~> 0.0)
-    linkheaders-processor (0.1.18)
+    linkheaders-processor (0.1.19)
       json (~> 2.0)
       json-ld (~> 3.2)
       json-ld-preloaded (~> 3.2)
@@ -384,7 +384,7 @@ DEPENDENCIES
   capybara
   debase
   fsp-harvester-server!
-  fsp_harvester (~> 0.1.25)
+  fsp_harvester (~> 0.1.26)
   linkeddata (~> 3.2.0)
   metainspector (~> 5.pre.11.pre.2)
   parseconfig (~> 1.1.2)
