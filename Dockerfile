@@ -26,3 +26,4 @@ RUN bundle install
 WORKDIR /server/fsp-harvester-server
 #CMD ["rerun", "'ruby /server/fsp-harvester-server/app/controllers/application_controller.rb  -o 0.0.0.0'"]
 #CMD ["ruby", "./app/controllers/application_controller.rb",   "-o",  "0.0.0.0"]
+ENTRYPOINT ["sh", "/server/entrypoint.sh"]

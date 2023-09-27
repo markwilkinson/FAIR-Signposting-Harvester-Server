@@ -75,14 +75,16 @@ GEM
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     fastimage (2.2.6)
-    ffi (1.15.5)
-    fsp_harvester (0.1.26)
+    ffi (1.16.2)
+    fsp_harvester (0.1.27)
       json (~> 2.0)
       linkeddata (~> 3.2)
       linkheaders-processor (~> 0.1.19)
       metainspector (~> 5.11.2)
       parseconfig (~> 1.1)
       rake (~> 13.0)
+      rdf-raptor (~> 3.2.0)
+      require_all (~> 3.0.0)
       rest-client (~> 2.1)
       rspec (~> 3.11)
       rubocop (~> 1.7)
@@ -225,9 +227,9 @@ GEM
       rdf (~> 3.2)
     rdf-ordered-repo (3.2.1)
       rdf (~> 3.2, >= 3.2.1)
-    rdf-raptor (3.1.0)
-      ffi (~> 1.11)
-      rdf (~> 3.1)
+    rdf-raptor (3.2.0)
+      ffi (~> 1.15)
+      rdf (~> 3.2)
     rdf-rdfa (3.2.0)
       haml (~> 5.2)
       htmlentities (~> 4.3)
@@ -384,14 +386,14 @@ DEPENDENCIES
   capybara
   debase
   fsp-harvester-server!
-  fsp_harvester (~> 0.1.26)
+  fsp_harvester (~> 0.1.27)
   linkeddata (~> 3.2.0)
   metainspector (~> 5.pre.11.pre.2)
   parseconfig (~> 1.1.2)
   pry
   rack-test
   rake (~> 13.0)
-  rdf-raptor (~> 3.1.0)
+  rdf-raptor (~> 3.2.0)
   require_all
   rest-client (~> 2.1.0)
   rspec (~> 3.11.0)

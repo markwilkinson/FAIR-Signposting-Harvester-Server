@@ -2,11 +2,11 @@ version: "2.0"
 services:
 
   fsp-harvester-server:
-    image: markwilkinson/fsp-harvester-server
+    image: markw/fsp-harvester-server:0.1.10
     container_name: "fsp-harvester-server"
     ports:
       - "4567:4567"
-    command: ruby /server/fsp-harvester-server/app/controllers/application_controller.rb -o 0.0.0.0
+#    command: ruby /server/fsp-harvester-server/app/controllers/application_controller.rb -o 0.0.0.0
     environment:
       - RUBYOPT=-W0 -KU -E utf-8:utf-8
       - HARVESTER=seek.cbgp.upm.es:9000

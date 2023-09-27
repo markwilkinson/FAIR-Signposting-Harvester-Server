@@ -31,7 +31,7 @@ class LinksResponse
   swagger_path '/links' do
     operation :get do
       key :summary, 'retrieve links'
-      key :description, 'retrieve the link headers discovered (as HTML link headers)'
+      key :description, 'Signposting Harvester Only: retrieve the link headers discovered (as HTML link headers)'
       key :operationId, 'links_retrieve'
       key :tags, ['retrieve_links']
       key :produces, [
@@ -58,7 +58,7 @@ class LinkedDataResponse
   swagger_path '/ld' do
     operation :get do
       key :summary, 'retrieve graph metadata'
-      key :description, 'retrieve the linked-data metadata gathered by following the "described-by" link headers, as json-ld'
+      key :description, 'Signposting Harvester Only: retrieve the linked-data metadata gathered by following the "described-by" link headers, as json-ld'
       key :operationId, 'graph_retrieve'
       key :tags, ['retrieve_rdf']
       key :produces, [
@@ -86,7 +86,7 @@ class LinkedDataResponseNegotiation
     operation :get do
       key :summary, 'retrieve graph metadata using full Champion harvesting workflow'
       key :description,
-          'retrieve the linked-data metadata gathered obtained by the full harvesting workflow used by The Champion combined with the FAIR Signposing'
+          'Retrieve the linked-data metadata gathered obtained by the full harvesting workflow used by The Champion combined with the FAIR Signposing'
       key :operationId, 'graph_retrieve_evaluator'
       key :tags, ['retrieve_rdf_champion_workflow']
       key :produces, [
@@ -114,7 +114,7 @@ class JSONDataResponseNegotiation
     operation :get do
       key :summary, 'retrieve hash-style metadata using full Champion harvesting workflow'
       key :description,
-          'retrieve the non-linked-data metadata gathered obtained by the full harvesting workflow used by The Champion combined with the FAIR Signposing'
+          'Retrieve the non-linked-data metadata gathered obtained by the full harvesting workflow used by The Champion combined with the FAIR Signposing'
       key :operationId, 'json_retrieve_evaluator'
       key :tags, ['retrieve_json_champion_workflow']
       key :produces, [
@@ -143,7 +143,7 @@ class JSONResponse
     operation :get do
       key :summary, 'retrieve non-graph metadata'
       key :description,
-          'retrieve the non-linked-data metadata gathered by following the "described-by" link headers, as JSON'
+          'Signposting Harvester Only: retrieve the non-linked-data metadata gathered by following the "described-by" link headers, as JSON'
       key :operationId, 'json_retrieve'
       key :tags, ['retrieve_json']
       key :produces, [
@@ -171,7 +171,7 @@ class JSONWarnings
     operation :get do
       key :summary, 'retrieve warnings'
       key :description,
-          'retrieve warnings generated during metadata gathering'
+          'Signposting Harvester Only: retrieve warnings generated during metadata gathering'
       key :operationId, 'warnings'
       key :tags, ['warnings']
       key :produces, [
@@ -199,7 +199,7 @@ class JSONWarningsFull
     operation :get do
       key :summary, 'retrieve warnings'
       key :description,
-          'retrieve warnings generated during metadata gathering using full Champion workflow'
+          'Retrieve warnings generated during metadata gathering using full Champion workflow'
       key :operationId, 'champion-warnings'
       key :tags, ['champion warnings']
       key :produces, [
